@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio da Divisao</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    <?php
+    $dividendo = $_GET['dividendo'] ?? 9;
+    $divisor = $_GETS['divisor'] ?? 9;
+    //$dividendo = 5;
+    //$divisor = 2;
+      ?>
+    <main>
+        <h1>Anatomia de uma Divisao</h1>
+        
+    <form  action="" method="get">
+        <label for="$dividendo">dividendo 1</label>
+        <input type="number" name="$dividendo" id="$dividendo"  min="0" value="<?=$dividendo?>">
+        <label for="$divisor">dividendo 2</label>
+        <input type="number" name="$divisor" id="$divisor" min="1" value="<?=$divisor?>">
+        <input type="submit" value="Analisar">
+
+    </form> 
+</main>
+<section>
+<h2>Estrutura da Divisao</h2>
+ <?php
+            //calculos
+    	$Quociente = intdiv($dividendo, $divisor);
+		$Resto = $dividendo % $divisor;
+		
+    	
+   	?>
+    <table class="divisao">
+        <tr>
+        <td><?=$dividendo?></td>
+        <td><?=$divisor?></td>
+    </tr>
+    <tr>
+        <td><?=$Resto?></td>
+        <td><?=$Quociente?></td>
+    </tr>
+    </table>
+    </section>
+  
+</body>
+</html>

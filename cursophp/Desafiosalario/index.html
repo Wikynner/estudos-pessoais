@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculo Salário</title>
+    <link rel="stylesheet" href="style.css";>
+    
+</head>
+<body><main>
+        <?php 
+        $minimo = 1380.60;
+        $sal = $_GET['sal'] ?? $minimo ;
+?>  <h1>Iforme seu salario</h1>
+    <form action="<?=$server['PHP_SELF']?>"method="get" >
+    <label for="salario">Sálario (R$)</label>
+    <input type="number" name="sal" id="sal" value="<?=$sal?>" step="0.01">
+    <p>Considerando o salario minimo de R$</p><?=number_format($minimo,2, ",",".")?></p>
+    <input type="submit" value="Calcular">
+   
+    </main>
+    </form>
+    <section>
+        <h2>Resultado Final</h2>
+        <?php
+        $tot = intdiv($sal, $minimo);
+        $dif = $sal % $minimo;
+        echo "Quem ganha $sal por mês, ganha um total de $tot salarios minimos e mais $dif " 
+        echo "<p>Quem recebe um salario de<?=$sal?>  ganha <?=$tot?>"</p>
+        ?>
+    </section>
+</main>
+    
+</body>
+</html>

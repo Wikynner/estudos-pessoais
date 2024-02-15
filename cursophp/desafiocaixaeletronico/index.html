@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caixa Eletronico</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <?php
+    $saque= $_REQUEST['saque'] ?? 0;
+    $resto = $saque;
+    //Saque de R$ 100<?=$tot?>
+    $tot100= floor($saque / 100);//floor arredonda para baixo
+    $resto %=100;
+    //Saque de R$50
+    $tot50 = floor($resto / 50);
+    $resto %= 50;
+    //Saque de R$50
+    $tot10 = floor($resto / 10);
+    $resto %= 10;
+    //Saque de R$5
+    $tot5= floor($resto / 5);
+    $resto %= 5;
+    ?>
+<main>
+    <section>
+     <h2>Caixa Eletronico</h2>
+        <form action="<?=$_SERVER['PHP_SELF']?>" method="get">
+        <label for="saque">Qual valor que voce deseja sacar ?</label>
+        <sup>*</sup>
+        <input type="number" name="saque" id="saque" step="5" require value="<?=$saque?>">
+        <h2>Saque de R$<?=number_format($saque, 2,",",".") realizado</h2>
+        <p>O caixa eletronico vai te entregar as seguintes notas :</p>
+        <ul>
+        <li>100 x<?=$tot?></li>
+        <li>50 x<?=$tot?></li>
+        <li>10 x<?=$tot?></li>
+        <li>5 x<?=$tot?></li>
+        </ul>
+        <input type="submit" value="sacar">
+        </form>
+    </section>
+    </main>
+</body>
+</html>
